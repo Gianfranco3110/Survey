@@ -6,9 +6,8 @@
         <h1 class="page-header">Registro de preguntas</h1>
     </div>
     <div >
-    <a href="#" class="btn btn-primary pull-right" data-toggle="modal" data-target="#create">
-    Nueva pregunta
-</a>    </div>
+        <button class="btn btn-primary btn-md pull-right" data-toggle="modal" data-target="#create">Nueva pregunta</button>  
+    </div>
         <table class="table table-hover table-striped">
             <thead>
                 <tr>
@@ -24,10 +23,10 @@
                     <td>  @{{encuestas.id}} </td>
                     <td> @{{encuestas.titulo}}</td>
                     <td widht="10px">
-                    <a href="#" class="btn btn-warning btn-sm"> Editar </a>
+                    <a href="#" class="btn btn-warning btn-md"> Editar </a>
                     </td>
                     <td widht="10px">
-                    <button class="btn btn-danger btn-sm" @click.prevent="deleteencuesta(encuestas)">Eliminar</button>    
+                    <button class="btn btn-danger btn-md" @click.prevent="deleteencuesta(encuestas)">Eliminar</button>    
                  </div>
 
                     </td>

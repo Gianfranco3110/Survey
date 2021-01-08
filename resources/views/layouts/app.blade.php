@@ -39,25 +39,25 @@
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="navbar-brand" href="{{ url('/') }}">{{ __('Inicio') }}</a>
+                        <a class="navbar-brand" href="{{ url('/') }}">{{ __('INICIO') }}</a>
                     </li>
                     <li class="nav-item">
-                        <a class="navbar-brand" href="#">{{ __('Estadistica') }}</a>
+                        <a class="navbar-brand" href="#">{{ __('ESTADISTICA') }}</a>
                     </li>
                     <li class="nav-item">
-                        <a class="navbar-brand" href="#">{{ __('Contacto') }}</a>
+                        <a class="navbar-brand" href="#">{{ __('CONTACTO') }}</a>
                     </li>
                         <!-- Authentication Links -->
                         @guest
                             @if (Route::has('login'))
                                 <li class="nav-item">
-                                    <a class="navbar-brand" href="{{ route('login') }}">{{ __('Ingresar') }}</a>
+                                    <a class="navbar-brand" href="{{ route('login') }}">{{ __('INGRESAR') }}</a>
                                 </li>
                             @endif
                             
                             @if (Route::has('register'))
                                 <li class="nav-item">
-                                    <a class="navbar-brand" href="{{ route('register') }}">{{ __('Registrar') }}</a>
+                                    <a class="navbar-brand" href="{{ route('register') }}">{{ __('REGISTRAR') }}</a>
                                 </li>
                             @endif
                         @else
@@ -67,12 +67,12 @@
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="{{ route ('home')}}">
-                                        {{__('Dashboard')}}
+                                        <h5>Dashboard</h5>
                                     </a>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                        {{ __('Salir') }}
+                                        <h5>Salir</h5>
                                     </a>
 
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
@@ -120,5 +120,8 @@ footer{
 
     .card-header{
         background-color: #cae4db !important; 
+    }
+    a{
+        font-size:20px !important;
     }
 </style>

@@ -4,7 +4,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                 <h3>Crear pregunta</h3>
-                    <button type="button" class="close" data-dismiss="modal">
+                    <button type="button" class="btn btn-primary" class="close" data-dismiss="modal">
                         <span>×</span>
                     </button>
                 </div>

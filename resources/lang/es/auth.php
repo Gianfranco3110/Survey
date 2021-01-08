@@ -13,8 +13,7 @@ return [
     |
     */
 
-    'failed' => 'Credenciales invalidas.',
-    'password' => 'La contraseña es incorrecta.',
-    'throttle' => 'Demasiados intentos de inicio de sesión. Vuelva a intentarlo en: segundos segundos.',
+    'failed' => 'Estas credenciales no coinciden con nuestros registros.',
+    'throttle' => 'Demasiados intentos de acceso. Por favor inténtelo de nuevo en :seconds segundos.',
 
 ];

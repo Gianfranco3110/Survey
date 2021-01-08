@@ -67,7 +67,7 @@ return [
     |
     */
 
-    'timezone' => 'UTC',
+    'timezone' => 'America/Caracas',
 
     /*
     |--------------------------------------------------------------------------
@@ -80,7 +80,7 @@ return [
     |
     */
 
-    'locale' => 'en',
+    'locale' => 'es',
 
     /*
     |--------------------------------------------------------------------------
@@ -135,6 +135,7 @@ return [
     */
 
     'providers' => [
+        Laraveles\Spanish\SpanishServiceProvider::class,
 
         /*
          * Laravel Framework Service Providers...
@@ -164,6 +165,7 @@ return [
 
         /*
          * Package Service Providers...
+         * 
          */
 
         /*

@@ -24,46 +24,6 @@
 
 <script>
 export default {
-    el: '#crud',
-    created: function(){
-        this.getencuesta();
-    },
-    data:{
-        encuesta:[],
-        titulo : '',
-        //fillencuestas:('id':'', 'encuestas':'');
-        errors : []
-    },
-        methods:{
-            getencuesta: function (){
-                var urlencuesta= 'encuesta';
-                axios.get(urlencuesta).then(response => {
-                this.encuesta = response.data
-                });
-            
-            },
-            deleteencuesta: function (encuestas){
-                var url = 'encuesta/' + encuestas.id;
-                axios.delete(url).then(response => {                     //eliminamos
-                this.getencuesta();                                     //listamos las preguntas
-                this.$toastr.success('Pregunta eliminada con exito');  //mensaje
-            });
-               
-            },
-            createencuesta: function() {
-                var url = 'encuesta';
-                axios.post(url, {
-                    titulo: this.titulo
-                }).then(response => {
-                    this.getencuesta();
-                    this.titulo = '';
-                    this.errors = [];
-                    $('#create').modal('hide');
-                    this.$toastr.success('Pregunta creada con exito');
-                }).catch(error => {
-                    this.errors = 'Corrija para poder crear con éxito'
-                });
-        },
-    }
+    
 }
 </script>

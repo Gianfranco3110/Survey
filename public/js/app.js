@@ -1998,59 +1998,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-/* harmony default export */ __webpack_exports__["default"] = ({
-  el: '#crud',
-  created: function created() {
-    this.getencuesta();
-  },
-  data: {
-    encuesta: [],
-    titulo: '',
-    //fillencuestas:('id':'', 'encuestas':'');
-    errors: []
-  },
-  methods: {
-    getencuesta: function getencuesta() {
-      var _this = this;
-
-      var urlencuesta = 'encuesta';
-      axios.get(urlencuesta).then(function (response) {
-        _this.encuesta = response.data;
-      });
-    },
-    deleteencuesta: function deleteencuesta(encuestas) {
-      var _this2 = this;
-
-      var url = 'encuesta/' + encuestas.id;
-      axios["delete"](url).then(function (response) {
-        //eliminamos
-        _this2.getencuesta(); //listamos las preguntas
-
-
-        _this2.$toastr.success('Pregunta eliminada con exito'); //mensaje
-
-      });
-    },
-    createencuesta: function createencuesta() {
-      var _this3 = this;
-
-      var url = 'encuesta';
-      axios.post(url, {
-        titulo: this.titulo
-      }).then(function (response) {
-        _this3.getencuesta();
-
-        _this3.titulo = '';
-        _this3.errors = [];
-        $('#create').modal('hide');
-
-        _this3.$toastr.success('Pregunta creada con exito');
-      })["catch"](function (error) {
-        _this3.errors = 'Corrija para poder crear con éxito';
-      });
-    }
-  }
-});
+/* harmony default export */ __webpack_exports__["default"] = ({});
 
 /***/ }),
 

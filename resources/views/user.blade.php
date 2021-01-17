@@ -1,6 +1,6 @@
 @extends('layouts.app')
-
 @section('content')
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
 <form action="">
 <div class="container">
     <div class="modal-body row"  id="crud">
@@ -43,18 +43,13 @@
 
             <div class="card" style="background-color: #3ab8a3fb;">
                 <div class="card-header">
-                    <h4>¿Cual es tu estado de animo?</h4>
+                    <h4>¿Que te ha parecido hasta ahora nuestro sistema?</h4>
                 </div>
-                    <div class="card-body" align="center">
-                        <img src="{{ asset('img/feliz.jpg') }}" alt="">
-                        <img src="{{ asset('img/feliz.jpg') }}" alt="">
-                        <img src="{{ asset('img/feliz.jpg') }}" alt="">
+                    <div class="card-body">
+                        <input  type="radio" name="3" required> BUENO <BR></BR>
+                        <input  type="radio" name="3" required> MALO <BR></BR>
+                        <input  type="radio" name="3" required> NO ERA LO QUE ESPERABA
                     </div>
-                    <div  class="card-footer" align="center">
-                        <input  type="radio" name="3" required>
-                        <input  type="radio" name="3" required>
-                        <input  type="radio" name="3" required>
-                    </div> 
             </div>
             
             <br><br>
@@ -96,8 +91,8 @@
                                         </thead>
                                             <body>
                                                 <tr v-for="encuestas in encuesta">
-                                                    <td>  @{{encuestas.id}} </td>
-                                                    <td> @{{encuestas.titulo}}</td>
+                                                    <td v-text="encuestas.id"></td>
+                                                    <td v-text="encuestas.titulo"></td>
                                                     <td widht="10px">
                                                         <input id="r1" type="radio" :name="'one'+encuestas.id" required>SI  
                                                     </td>
@@ -112,8 +107,11 @@
             </div>
         </div>
     </div>
+    <canvas id="myChart" width="200" height="80"></canvas>
+
 </div>
 </form>
+
 <style>
 
 td{
@@ -128,4 +126,45 @@ tr{
 
 }
 </style>
+
+<script>
+var ctx = document.getElementById('myChart').getContext('2d');
+var myChart = new Chart(ctx, {
+    type: 'pie',
+    data: {
+        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+        datasets: [{
+            label: '# of Votes',
+            data: [12, 19, 3, 5, 2, 3],
+            backgroundColor: [
+                'red',
+                'blue',
+                'Yellow',
+                'Green',
+                'Purple',
+                'Orange'
+            ],
+            borderColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)'
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero: true
+                }
+            }]
+        }
+    }
+});
+</script>
+
 @endsection

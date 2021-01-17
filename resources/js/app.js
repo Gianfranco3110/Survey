@@ -1,11 +1,10 @@
 require('./bootstrap');
 window.Vue = require('vue');
 
+
 //componentes
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 Vue.component('survey-component', require('./components/SurveyComponent.vue').default);
-Vue.component('show-component', require('./components/ShowComponent.vue'));
-
 
 //importacion de las notificaciones
 import Vue from 'vue'

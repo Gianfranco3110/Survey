@@ -84,11 +84,11 @@
                 </div>
             </div>
         </nav>
-        
             @yield('home')
         
         <main class="py-4">
             @yield('content')
+            @yield('admin')
         </main>
     </div>
 </body>
@@ -99,6 +99,26 @@
             </div>
             <!-- Copyright -->
         </footer>
+        <div class="sticky-container">
+    <ul class="sticky">
+        <li>
+            <img src="{{ asset('/img/facebook.png') }}" width="32" height="32">
+            <p><a href="" target="_blank">Siguenos en<br>Facebook</a></p>
+        </li>
+        <li>
+            <img src="{{ asset('/img/twiter.png') }}" width="32" height="32">
+            <p><a href="" target="_blank">Siguenos en<br>Twitter</a></p>
+        </li>
+        <li>
+            <img src="{{ asset('/img/instagram.png') }}" width="32" height="32">
+            <p><a href="" target="_blank">Siguenos en<br>Instagram</a></p>
+        </li>
+        <li>
+            <img src="{{ asset('/img/youtube.png') }}" width="32" height="32">
+            <p><a href="" target="_blank">Subscribite <br> en YouYube</a></p>
+        </li>
+    </ul>
+</div>
 </html>
 
 <style>
@@ -124,4 +144,54 @@ footer{
         font-size:20px !important;
 
     }
+    .sticky-container{
+    padding:0px;
+    margin:0px;
+    position:fixed;
+    right:-130px;
+    top:230px;
+    width:210px;
+    z-index: 1100;
+}
+.sticky li{
+    list-style-type:none;
+    background-color:#fff;
+    color:#efefef;
+    height:43px;
+    padding:0px;
+    margin:0px 0px 1px 0px;
+    -webkit-transition:all 0.25s ease-in-out;
+    -moz-transition:all 0.25s ease-in-out;
+    -o-transition:all 0.25s ease-in-out;
+    transition:all 0.25s ease-in-out;
+    cursor:pointer;
+}
+.sticky li:hover{
+    margin-left:-115px;
+}
+.sticky li img{
+    float:left;
+    margin:5px 4px;
+    margin-right:7px;
+}
+.sticky li p{
+    padding-top:5px;
+    margin:8px;
+    line-height:16px;
+    font-size:11px;
+}
+.sticky li p a{
+    text-decoration:none;
+    color:#2C3539;
+}
+.sticky li p a:hover{
+    text-decoration:underline;
+}
+
+@media screen and (max-width: 600px) {
+.sticky-container{
+display:none;
+}
+}
+
 </style>

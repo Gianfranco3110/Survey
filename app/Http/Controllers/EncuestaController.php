@@ -23,7 +23,7 @@ class EncuestaController extends Controller
         $this->validate($request, [
             'titulo' => 'required'
         ]);
-
+        
         encuesta::create($request->all());
         return;
     }
@@ -38,5 +38,7 @@ class EncuestaController extends Controller
         $encuesta = Encuesta::find($id);
         $encuesta->delete();
     }
+
+    
     
 }

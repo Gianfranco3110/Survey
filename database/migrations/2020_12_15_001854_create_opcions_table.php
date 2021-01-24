@@ -15,10 +15,16 @@ class CreateOpcionsTable extends Migration
     {
         Schema::create('opcions', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('nombre',50);
             $table->string('valor',11);
+            $table->unsignedInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users')
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
+                
             $table->unsignedInteger('encuestas_id');
-            $table->foreign('encuestas_id')->references('id')->on('encuestas');
+            $table->foreign('encuestas_id')->references('id')->on('encuestas')
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
             $table->timestamps();
         });
     }

@@ -24,4 +24,4 @@ Route::get('/user', [App\Http\Controllers\HomeController::class, 'getuser']);
 
 // Ruta donde se realiza el CRUD de las encuestas
 Route::resource('encuesta','EncuestaController', ['except' => 'show','edit','create']);
-
+Route::post('/resp', [App\Http\Controllers\OpcionController::class, 'store']);

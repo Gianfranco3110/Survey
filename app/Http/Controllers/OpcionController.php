@@ -27,57 +27,51 @@ class OpcionController extends Controller
         //
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
-        //
+        
+
+        $this->validate($request, [
+            'valor' => 'required',
+            'user_id'=>'required',
+            'encuestas_id'=>'required',
+
+        ]);
+
+        $opcion = new Opcion;
+        $opcion->valor = $request->valor;
+        $opcion->user_id = $request->user_id;
+        $opcion->encuestas_id = $request->encuestas_id;
+        $opcion->save();
+      
+        /*
+        //$id=Auth::user()->id;
+        $user = new User;
+        $user->find($id);
+        $user->estatus = 'yes';
+        $user-> save(); */
+
+        return;
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Opcion  $opcion
-     * @return \Illuminate\Http\Response
-     */
+
     public function show(Opcion $opcion)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Opcion  $opcion
-     * @return \Illuminate\Http\Response
-     */
     public function edit(Opcion $opcion)
     {
         //
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Opcion  $opcion
-     * @return \Illuminate\Http\Response
-     */
+   
     public function update(Request $request, Opcion $opcion)
     {
         //
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Opcion  $opcion
-     * @return \Illuminate\Http\Response
-     */
+   
     public function destroy(Opcion $opcion)
     {
         //

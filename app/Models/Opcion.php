@@ -8,4 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class Opcion extends Model
 {
     use HasFactory;
+    protected $fillable = ['valor','user_id','encuestas_id'];
 }

@@ -85,20 +85,21 @@
             </div>
         </nav>
             @yield('home')
-        
-        <main class="py-4">
+        <main>
             @yield('content')
             @yield('admin')
         </main>
     </div>
-</body>
     <footer class="footer">
         <!-- Copyright -->
             <div class="text-center p-4" style="background-color: #00303f">
                 <h4> © 2020 Copyright Encuestas venezuela</h4>
             </div>
             <!-- Copyright -->
-        </footer>
+    </footer>
+</body>
+
+    <!-- Sticker de redes sociales -->
         <div class="sticky-container">
     <ul class="sticky">
         <li>
@@ -130,11 +131,8 @@ footer{
         text-align: center;
         font-family: sans-serif;
         color: black;
-        width: 100%;
         bottom: 0;
-        position:relative;
-        clear:both;   
-             
+        width: 100%;
     }
 
     .card-header{

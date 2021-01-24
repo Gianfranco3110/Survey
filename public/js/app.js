@@ -1948,7 +1948,100 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-/* harmony default export */ __webpack_exports__["default"] = ({});
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      encuesta: [],
+      titulo: '',
+      errors: []
+    };
+  },
+  methods: {
+    getencuesta: function getencuesta() {
+      var _this = this;
+
+      var urlencuesta = 'encuesta';
+      axios.get(urlencuesta).then(function (response) {
+        _this.encuesta = response.data;
+      });
+    },
+    deleteencuesta: function deleteencuesta(encuestas) {
+      var _this2 = this;
+
+      var url = 'encuesta/' + encuestas.id;
+      axios["delete"](url).then(function (response) {
+        //eliminamos
+        _this2.getencuesta(); //listamos las preguntas
+
+
+        _this2.$toastr.success('Pregunta eliminada con exito'); //mensaje
+
+      });
+    },
+    createencuesta: function createencuesta() {
+      var _this3 = this;
+
+      var url = 'encuesta';
+      axios.post(url, {
+        titulo: this.titulo
+      }).then(function (response) {
+        _this3.getencuesta();
+
+        _this3.titulo = '';
+        _this3.errors = [];
+        $('#create').modal('hide');
+
+        _this3.$toastr.success('Pregunta creada con exito');
+      })["catch"](function (error) {
+        _this3.errors = 'Corrija para poder crear con éxito';
+      });
+    },
+    CreateResp: function CreateResp() {
+      var _this4 = this;
+
+      var urlresp = 'resp';
+      axios.post(urlresp, {
+        respuesta: this.respuesta,
+        id_user: this.id_user,
+        encuestas_id: this.encuestas_id
+      }).then(function (response) {
+        _this4.getencuesta();
+
+        _this4.respuesta = '';
+        _this4.id_user = '';
+        _this4.encuestas_id = '';
+        _this4.errors = [];
+
+        _this4.$toastr.success('Respuesta creada con exito');
+      })["catch"](function (error) {
+        _this4.errors = 'Corrija para poder enviar con éxito';
+      });
+    }
+  }
+});
 
 /***/ }),
 
@@ -38656,7 +38749,7 @@ var staticRenderFns = [
             _vm._v(" "),
             _c("div", { staticClass: "card-body" }, [
               _vm._v(
-                "\n                    I'm an example component.\n                "
+                "\n                    HOLA ESTOY EN EL COMPONENTE.\n                "
               )
             ])
           ])
@@ -38686,17 +38779,76 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div", { attrs: { id: "crud" } }, [
+    _c("h4", [_vm._v("Registro de preguntas")]),
+    _vm._v(" "),
+    _c(
+      "button",
+      {
+        staticClass: "btn btn-primary btn-md pull-right",
+        attrs: { "data-toggle": "modal", "data-target": "#create" }
+      },
+      [_vm._v("Nueva pregunta")]
+    ),
+    _vm._v(" "),
+    _c("table", { staticClass: "table table-hover table-striped" }, [
+      _vm._m(0),
+      _vm._v(" "),
+      _c("body", [
+        _c("tr", { attrs: { "v-for": _vm.encuestas in _vm.encuesta } }, [
+          _c("td", { domProps: { textContent: _vm._s(_vm.encuestas.id) } }),
+          _vm._v(" "),
+          _c("td", { domProps: { textContent: _vm._s(_vm.encuestas.titulo) } }),
+          _vm._v(" "),
+          _vm._m(1),
+          _vm._v(" "),
+          _c("td", { attrs: { widht: "10px" } }, [
+            _c(
+              "button",
+              {
+                staticClass: "btn btn-danger btn-md",
+                on: {
+                  click: function($event) {
+                    $event.preventDefault()
+                    return _vm.deleteencuesta(_vm.encuestas)
+                  }
+                }
+              },
+              [_vm._v("Eliminar")]
+            )
+          ])
+        ])
+      ])
+    ])
+  ])
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "container" }, [
-      _c("h4", [_vm._v(" Estoy aqui")]),
-      _vm._v(" "),
-      _c("canvas", { attrs: { id: "myChart", width: "200", height: "80" } })
+    return _c("thead", [
+      _c("tr", [
+        _c("th", [_vm._v(" Id")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Titulo")]),
+        _vm._v(" "),
+        _c("th", { attrs: { colspan: "2" } }, [
+          _vm._v(
+            "\r\n                                         \r\n                            "
+          )
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("td", { attrs: { widht: "10px" } }, [
+      _c("button", { staticClass: "btn btn-warning btn-md" }, [
+        _vm._v(" Editar ")
+      ])
     ])
   }
 ]
@@ -51039,57 +51191,7 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('survey-component', __webpa
 window.toastr = __webpack_require__(/*! toastr */ "./node_modules/toastr/toastr.js");
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_toastr_2__WEBPACK_IMPORTED_MODULE_1___default.a);
 var app = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
-  el: '#crud',
-  created: function created() {
-    this.getencuesta();
-  },
-  data: {
-    encuesta: [],
-    titulo: '',
-    //fillencuestas:('id':'', 'encuestas':'');
-    errors: []
-  },
-  methods: {
-    getencuesta: function getencuesta() {
-      var _this = this;
-
-      var urlencuesta = 'encuesta';
-      axios.get(urlencuesta).then(function (response) {
-        _this.encuesta = response.data;
-      });
-    },
-    deleteencuesta: function deleteencuesta(encuestas) {
-      var _this2 = this;
-
-      var url = 'encuesta/' + encuestas.id;
-      axios["delete"](url).then(function (response) {
-        //eliminamos
-        _this2.getencuesta(); //listamos las preguntas
-
-
-        _this2.$toastr.success('Pregunta eliminada con exito'); //mensaje
-
-      });
-    },
-    createencuesta: function createencuesta() {
-      var _this3 = this;
-
-      var url = 'encuesta';
-      axios.post(url, {
-        titulo: this.titulo
-      }).then(function (response) {
-        _this3.getencuesta();
-
-        _this3.titulo = '';
-        _this3.errors = [];
-        $('#create').modal('hide');
-
-        _this3.$toastr.success('Pregunta creada con exito');
-      })["catch"](function (error) {
-        _this3.errors = 'Corrija para poder crear con éxito';
-      });
-    }
-  }
+  el: '#crud'
 });
 
 /***/ }),

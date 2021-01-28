@@ -5,6 +5,7 @@ window.Vue = require('vue');
 //componentes
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 Vue.component('survey-component', require('./components/SurveyComponent.vue').default);
+Vue.component('task-component', require('./components/TaskComponent.vue').default);
 
 //importacion de las notificaciones
 import Vue from 'vue'
@@ -15,6 +16,5 @@ Vue.use(VueToastr2)
 
 
 const app = new Vue({
-    el: '#crud',
-
+    el: '#survey',
 });

@@ -12,22 +12,22 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#">Dashboard</a>
+                    <a href="#tabs1" id="enlace1">DASHBOARD</a>
                 </li>
                 <li>
-                    <a href="#tabs-1" id="enlace1">Estadisticas</a>
+                    <a href="#tabs-2" id="enlace2">REGISTRO</a>
                 </li>
                 <li>
-                    <a href="#tabs-2" id="enlace2"> Preguntas</a>
+                    <a href="#tabs-3" id="enlace3"> REPORTES</a>
                 </li>
                 <li>
-                    <a href="#tabs-3" id="enlace3">Servicios</a>
+                    <a href="#tabs-4" id="enlace4">USUARIOS</a>
                 </li>
                 <li>
-                    <a href="#">Adicional</a>
+                    <a href="#">ADICIONAL</a>
                 </li>
                 <li>
-                    <a href="#">Contacto</a>
+                    <a href="#">CONTACTO</a>
                 </li>
             </ul>
         </div>
@@ -38,26 +38,16 @@
                     <div class="row">
                         <div class="col-lg-12">
                             <div id="tabs-1">
-                                <canvas id="myChart" width="200" height="80"></canvas>
-                            </div>
-                            <div>
-                                <div id="tabs-2">
-                                <div id="crud">
-                                <button class="btn btn-primary btn-md pull-right" data-toggle="modal" data-target="#create">Nueva pregunta</button>  
-                                  <survey-component></survey-component>
+                                    <h2>BIENVENIDO AL SISTEMA DE ENCUESTAS</h2>
                                 </div>
-                                    
-                                    @include('create')
-                                </div>
-                                <!-- Final del enlace de las preguntas -->
-                                
-                                <!--Final del enlace del cuadro de estadisticas-->
-
+                                    <div id="tabs-2">
+                                        <div id="survey">
+                                            <example-component></example-component><!--Añadimos nuestro componente vuejs-->    					        </div>
+                                         </div>
+                                    </div>
                                 <div id="tabs-3">
-                                    <example-component></example-component>
-    					        </div>
-                                <!-- Final del enlace servicios -->
-                            </div>
+                                    <canvas id="myChart" width="400" height="400"></canvas>
+                                </div>
                         <div>
                     </div>
                 </div>
@@ -79,26 +69,41 @@
 <!-- Js que muestra/oculta los elementos del sidebar -->
 <script type="text/javascript">
 	$(document).ready(function(){
-		$('#tabs-1').hide();
+		$('#tabs-1').show();
 		$('#tabs-2').hide();
 		$('#tabs-3').hide();
+        $('#tabs-4').hide()
 
 		$('#enlace1').click(function(){
 			$('#tabs-1').show();
 			$('#tabs-2').hide();
 			$('#tabs-3').hide();
+            $('#tabs-4').hide()
+
 		});
 
 		$('#enlace2').click(function(){
 			$('#tabs-2').show();
 			$('#tabs-1').hide();
 			$('#tabs-3').hide();
+            $('#tabs-4').hide()
+
 		});
 
 		$('#enlace3').click(function(){
 			$('#tabs-3').show();
 			$('#tabs-2').hide();
 			$('#tabs-1').hide();
+            $('#tabs-4').hide()
+
+		});
+
+        $('#enlace4').click(function(){
+			$('#tabs-3').show();
+			$('#tabs-2').hide();
+			$('#tabs-1').hide();
+            $('#tabs-4').hide()
+
 		});
 	});
 </script>

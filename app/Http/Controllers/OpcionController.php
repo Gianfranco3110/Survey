@@ -29,15 +29,7 @@ class OpcionController extends Controller
 
     public function store(Request $request)
     {
-        
-
-        $this->validate($request, [
-            'valor' => 'required',
-            'user_id'=>'required',
-            'encuestas_id'=>'required',
-
-        ]);
-
+    
         $opcion = new Opcion;
         $opcion->valor = $request->valor;
         $opcion->user_id = $request->user_id;

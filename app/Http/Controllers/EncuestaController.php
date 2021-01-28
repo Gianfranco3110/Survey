@@ -14,31 +14,36 @@ class EncuestaController extends Controller
      */
     public function index()
     {
-        return encuesta::all();
+        $encuesta = Encuesta::all();
+        return $encuesta;
     }
 
     public function store(Request $request)
     {
-
-        $this->validate($request, [
-            'titulo' => 'required'
-        ]);
-        
-        encuesta::create($request->all());
-        return;
+        $encuesta = new Encuesta();
+        $encuesta->titulo = $request->titulo;
+        $encuesta->save();
     }
 
     public function update(Request $request, Encuesta $encuesta)
     {
-        //
+        $encuesta = Encuesta::findOrFail($request->id);
+        $encuesta->titulo = $request->titulo;
+        $encuesta->save();
+        return $encuesta;
+        //Esta función actualizará la tarea que hayamos seleccionado
     }
 
-    public function destroy($id)
+    public function show(Request $request)
     {
-        $encuesta = Encuesta::find($id);
-        $encuesta->delete();
+        $encuesta = Encuesta::findOrFail($request->id);
+        return $encuesta;
+        //Esta función devolverá los datos de una tarea que hayamos seleccionado para cargar el formulario con sus datos
     }
 
-    
-    
+    public function destroy(Request $request)
+    {
+        $encuesta = Encuesta::destroy($request->id);
+        return $encuesta;
+    }    
 }

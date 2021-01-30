@@ -51,12 +51,16 @@
 <script>
 let user = document.head.querySelector('meta[name="user"]');
 var user_id = JSON.parse(user.content).id;
-
 console.log(user_id);
-
 export default {
     data() {
         return {
+            respuestas: [
+                {
+                    valor: "",
+                    encuestas_id: ""
+                }
+            ],
             encuesta: [], //Este array contendrá las tareas de nuestra bd
             user_id: user_id, //id del usuario que esta enviando la resp
             valor: "",
@@ -78,12 +82,19 @@ export default {
                     console.log(error);
                 });
         },
-
         check($event) {
-            var valor = $event.target.value;
-            var encuestas_id = $event.target.name;
-            alert(valor);
-            return valor, encuestas_id;
+            let valor = $event.target.value;
+            let encuestas_id = $event.target.name;
+
+            let aux = new respuestas();
+            aux = valor;
+            aux = encuestas_id;
+            set(valor);
+            set(encuestas_id);
+            respuestas.add(aux);
+
+            this.respuestas.push({ valor, encuestas_id });
+            console.log(this.respuestas);
         },
         saveResp() {
             let me = this;
@@ -91,8 +102,8 @@ export default {
             axios
                 .post(url, {
                     //estas variables son las que enviaremos para llenar la tabla opcions
-                    valor: "",
-                    encuestas_id: "",
+                    valor: this.valor,
+                    encuestas_id: this.encuestas_id,
                     user_id: user_id
                 })
                 .then(function(response) {

@@ -36,14 +36,12 @@
             <div id="page-content-wrapper">
                 <div class="container">
                     <div class="row">
-                        <div class="col-lg-12">
+                        <div class="col-lg-12" id="survey">
                             <div id="tabs-1">
-                                    <h2>BIENVENIDO AL SISTEMA DE ENCUESTAS</h2>
-                                </div>
+                                <tarjeta-component></tarjeta-component>
+                            </div>
                                     <div id="tabs-2">
-                                        <div id="survey">
-                                            <example-component></example-component><!--Añadimos nuestro componente vuejs-->    					        </div>
-                                         </div>
+                                        <example-component></example-component><!--Añadimos nuestro componente vuejs-->    					        </div>
                                     </div>
                                 <div id="tabs-3">
                                     <canvas id="myChart" width="400" height="400"></canvas>
@@ -113,7 +111,7 @@
 <script>
 var ctx = document.getElementById('myChart').getContext('2d');
 var myChart = new Chart(ctx, {
-    type: 'bar',
+    type: 'pie',
     data: {
         labels: ['Bajo', 'Alto'],
         datasets: [{

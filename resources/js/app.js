@@ -6,6 +6,8 @@ window.Vue = require('vue');
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 Vue.component('survey-component', require('./components/SurveyComponent.vue').default);
 Vue.component('task-component', require('./components/TaskComponent.vue').default);
+Vue.component('tarjeta-component', require('./components/TarjetaComponent.vue').default);
+
 
 //importacion de las notificaciones
 import Vue from 'vue'

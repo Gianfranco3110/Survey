@@ -5,7 +5,7 @@
         </nav>
         <br /><br /><br />
         <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-8">
                 <table class="table text-center">
                     <!--Creamos una tabla que mostrará todas las tareas-->
                     <thead>
@@ -26,7 +26,9 @@
                                 >
                                     Modificar
                                 </button>
-                                <br /><br />
+                            </td>
+
+                            <td>
                                 <!--Botón que borra la tarea que seleccionemos-->
                                 <button
                                     class="btn btn-danger btn-md"
@@ -39,7 +41,7 @@
                     </tbody>
                 </table>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-4">
                 <div class="form-group">
                     <!-- Formulario para la creación o modificación de nuestras tareas-->
                     <h5>AGREGAR PREGUNTA</h5>

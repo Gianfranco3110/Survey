@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Opcion;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class OpcionController extends Controller
@@ -35,13 +36,10 @@ class OpcionController extends Controller
         $opcion->user_id = $request->user_id;
         $opcion->encuestas_id = $request->encuestas_id;
         $opcion->save();
-      
-        /*
-        //$id=Auth::user()->id;
-        $user = new User;
-        $user->find($id);
+        
+        $user = User::find(Request('user_id'));
         $user->estatus = 'yes';
-        $user-> save(); */
+        $user-> save();
 
         return;
     }

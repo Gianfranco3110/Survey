@@ -9,4 +9,10 @@ class Opcion extends Model
 {
     use HasFactory;
     protected $fillable = ['valor','user_id','encuestas_id'];
+
+    public function user()
+    {
+        return $this->hasOne(User::class);
+    }
 }
+
